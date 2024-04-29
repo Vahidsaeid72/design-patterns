@@ -1,21 +1,24 @@
 import './App.css';
 import SplitScreen from './layoutComponent/splitScreen/SplitScreen';
 
-const LeftSideComponent = ()=>{
+const LeftSideComponent = ({title})=>{
   return<>
-    <div style={{background:"red"}}>this is left component</div>
+    <div style={{background:"red"}}>{title}</div>
   </>
 }
-const RightSideComponent = ()=>{
+const RightSideComponent = ({title})=>{
   return<>
-    <div style={{background:"blue"}}>this is right component</div>
+    <div style={{background:"blue"}}>{title}</div>
   </>
 }
 
 function App() {
   return (
     <div className="App">
-     <SplitScreen Left={LeftSideComponent} Right={RightSideComponent}/>
+     <SplitScreen LeftWidth={2} RightWidth={4}>
+        <LeftSideComponent title={'left side component'}/>
+        <RightSideComponent title={'right side component'}/>
+     </SplitScreen>
     </div>
   );
 }
