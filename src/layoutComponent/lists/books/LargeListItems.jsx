@@ -1,11 +1,14 @@
 import React from 'react';
 
-const LargeListItems = () => {
+const LargeBookListItems = ({book}) => {
+    const {title,price,page}= book;
     return (
-        <div>
-            
-        </div>
+        <ul>
+            <li>{title}</li>
+            <li>{price}</li>
+            <li>{page}</li>
+        </ul>
     );
 }
 
-export default LargeListItems;
+export default LargeBookListItems;
