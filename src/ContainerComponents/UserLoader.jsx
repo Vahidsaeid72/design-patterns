@@ -1,7 +1,10 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 const UserLoader = ({userId,children}) => {
     const[user,setUser]=useState(null);
+
+
     useEffect(() => {
         (async ()=>{
             const response = await axios.get(`/users/${userId}`)
@@ -11,7 +14,6 @@ const UserLoader = ({userId,children}) => {
 
     return <>
         {React.Children.map(children,(child) =>{
-            console.log(child);
             if(React.isValidElement(child)){
                 return React.cloneElement(child,{user})
             }

@@ -13,7 +13,6 @@ const CurrentUserLoader = ({children}) => {
 
     return <>
         {React.Children.map(children,(child) =>{
-            console.log(child);
             if(React.isValidElement(child)){
                 return React.cloneElement(child,{user})
             }

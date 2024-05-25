@@ -13,18 +13,21 @@ let currentUser = {
 
 let users = [
   {
+    id:1,
     name: "Sarah Waters",
     age: 55,
     country: "United Kingdom",
     books: ["Fingersmith", "The Night Watch"],
   },
   {
+    id:2,
     name: "Haruki Murakami",
     age: 71,
     country: "Japan",
     books: ["Norwegian Wood", "Kafka on the Shore"],
   },
   {
+    id:3,
     name: "Chimamanda Ngozi Adichie",
     age: 43,
     country: "Nigeria",
@@ -57,20 +60,25 @@ app.get("/current-user", (req, res) => res.json(currentUser));
 
 app.get("/users/:id", (req, res) => {
   const { id } = req.params;
-  console.log(id);
-  res.json(users.find((user) => user.id === id));
+  var user ;
+  users.forEach(u => {
+    if(u.id == id ){
+      user = u
+    }
+  });
+  res.json(user);
 });
 
 app.get("/users", (req, res) => res.json(users));
 
-app.post("/users/:id", (req, res) => {
-  const { id } = req.params;
-  const { user: editedUser } = req.body;
+// app.post("/users/:id", (req, res) => {
+//   const { id } = req.params;
+//   const { user: editedUser } = req.body;
 
-  users = users.map((user) => (user.id === id ? editedUser : user));
+//   users = users.map((user) => (user.id === id ? editedUser : user));
 
-  res.json(users.find((user) => user.id === id));
-});
+//   res.json(users.find((user) => user.id === id));
+// });
 
 app.get("/books", (req, res) => res.json(books));
 
