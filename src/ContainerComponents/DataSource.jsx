@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { logProp } from '../HOC/LogProps';
 
 const DataSource = ({getData=()=>{},resourceName,children}) => {
     const[resource,setResource]=useState(null);
@@ -19,4 +20,4 @@ const DataSource = ({getData=()=>{},resourceName,children}) => {
     </>
 }
 
-export default DataSource;
+export default logProp(DataSource);
