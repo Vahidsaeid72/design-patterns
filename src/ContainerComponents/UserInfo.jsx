@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserInfo = ({user}) => {
+export const UserInfo = ({user}) => {
 
   const { name, age, country, books } = user || {};
   return user ? (
@@ -20,4 +20,3 @@ const UserInfo = ({user}) => {
   );
 }
 
-export default UserInfo;
